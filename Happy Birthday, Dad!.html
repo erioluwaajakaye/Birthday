@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Dad!</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Great+Vibes&display=swap">
+<style>
+:root{--s1:#2d6fe0;--s2:#0f3a8f;--s3:#061a45;--ink:#eef5ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--s1:#1f55b8;--s2:#0a2a6c;--s3:#030d27}}
+:root[data-theme="dark"]{--s1:#1f55b8;--s2:#0a2a6c;--s3:#030d27}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(ellipse at 50% 35%,var(--s1) 0%,var(--s2) 50%,var(--s3) 100%);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow:hidden}
+#scene{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.bk{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(160,200,255,.35),rgba(160,200,255,0) 70%);animation:fl 9s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-40px) scale(1.2);opacity:.4}}
+#warm{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,190,90,.38),rgba(255,150,60,0) 55%);opacity:0;transition:opacity 1.6s;animation:wf .25s infinite alternate;pointer-events:none}
+@keyframes wf{to{filter:brightness(1.12)}}
+#wrap{width:min(92vw,58vh*1.08);transform-origin:0 0;transition:transform 2.8s cubic-bezier(.65,0,.25,1);will-change:transform}
+svg{width:100%;height:auto;display:block;overflow:visible}
+#top,#bot{position:absolute;left:0;right:0;text-align:center;padding:0 16px;z-index:5;text-shadow:0 2px 14px rgba(3,13,39,.9)}
+#top{top:max(5vh,env(safe-area-inset-top,0px))}
+#bot{bottom:max(5vh,env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:12px}
+#eyebrow{margin:0;font:clamp(1.6rem,7vw,2.4rem) "Great Vibes",cursive;color:#bcd6ff}
+#msg{margin:4px 0 0;font:600 clamp(1.05rem,4.2vw,1.6rem) "Playfair Display",Georgia,serif;letter-spacing:.02em;min-height:2.4em;transition:opacity .5s}
+#count{font:800 clamp(3.4rem,15vw,5.6rem) "Playfair Display",Georgia,serif;min-height:1.1em;line-height:1;color:#fff}
+#count.tick{animation:tk 1s ease-out}
+@keyframes tk{0%{transform:scale(1.7);opacity:0}25%{opacity:1}100%{transform:scale(.9);opacity:.7}}
+button{font:600 1.05rem "Playfair Display",Georgia,serif;letter-spacing:.06em;color:#fff;padding:14px 34px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.5);background:linear-gradient(180deg,#5b9bff,#1f55d8);box-shadow:0 8px 26px rgba(20,80,220,.55),inset 0 1px 0 rgba(255,255,255,.6)}
+button:active{transform:scale(.97)}
+.hidden{display:none!important}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:fk .3s infinite alternate ease-in-out}
+.flame.b{animation-duration:.4s}
+@keyframes fk{from{transform:scale(1,1) skewX(-2deg)}to{transform:scale(.9,1.1) skewX(3deg)}}
+.blow .flame{animation:gust 1.2s ease-in forwards}
+@keyframes gust{0%{transform:skewX(0) scale(1)}25%{transform:skewX(-35deg) rotate(-8deg) scale(.85,.8)}55%{transform:skewX(-50deg) rotate(-20deg) scale(.6,.55)}100%{transform:skewX(-60deg) rotate(-28deg) scale(.3,.25);opacity:0}}
+.glow{animation:gl .3s infinite alternate}
+@keyframes gl{from{opacity:.75}to{opacity:1}}
+.blow .glow{transition:opacity 1.2s;opacity:0;animation:none}
+.out .lit{display:none}
+.smoke{opacity:0;fill:none;stroke:#c8d4e8;stroke-width:2;stroke-linecap:round}
+.out .smoke{animation:sm 2.6s ease-out forwards}
+@keyframes sm{0%{opacity:.8;transform:translateY(0)}100%{opacity:0;transform:translateY(-26px)}}
+#finale{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px;text-align:center;background:radial-gradient(ellipse at center,rgba(8,30,80,.55),rgba(3,13,39,.82));backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:fi 1.4s ease-out}
+@keyframes fi{from{opacity:0}}
+#finale .sc{font:clamp(2.6rem,12vw,4.6rem) "Great Vibes",cursive;color:#9cc3ff;animation:up 1.2s .2s both}
+#finale h2{margin:0;font:800 clamp(2.5rem,12.5vw,6.2rem) "Playfair Display",Georgia,serif;line-height:1.05;display:flex;flex-direction:column;align-items:center}
+#finale h2 span.l{display:flex}
+#finale h2 i{font-style:normal;display:inline-block;background:linear-gradient(180deg,#fff 20%,#a9ccff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(80,150,255,.8));animation:up .9s both}
+@keyframes up{from{opacity:0;transform:translateY(34px) scale(.9)}}
+#finale .rule{width:min(60vw,320px);height:1px;margin:14px 0 8px;background:linear-gradient(90deg,transparent,#9cc3ff,transparent);animation:up 1s 2.4s both}
+#finale p{margin:0 0 16px;font:italic clamp(1rem,4vw,1.35rem) Georgia,serif;color:#cfe1ff;animation:up 1s 2.7s both}
+#finale button{animation:up 1s 3.1s both}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
+</style>
+</head>
+<body>
+<div id="scene">
+  <div id="warm"></div>
+  <div id="top"><p id="eyebrow">For Dad</p><p id="msg">Today is a very special day…</p></div>
+  <div id="wrap">
+  <svg id="cake" viewBox="0 0 400 370" role="img" aria-label="Layered vanilla birthday cake with blue icing and lit candles">
+    <defs>
+      <linearGradient id="sponge"><stop offset="0" stop-color="#e3c98f"/><stop offset=".4" stop-color="#f9ecc8"/><stop offset="1" stop-color="#e0c486"/></linearGradient>
+      <linearGradient id="shade"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".25" stop-color="#fff" stop-opacity=".18"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".38"/></linearGradient>
+      <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fbcff"/><stop offset=".5" stop-color="#3a78ea"/><stop offset="1" stop-color="#1b4fb8"/></linearGradient>
+      <radialGradient id="tp" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#a9ceff"/><stop offset=".6" stop-color="#4d8bf0"/><stop offset="1" stop-color="#2a63cf"/></radialGradient>
+      <linearGradient id="plate" x1="0" x2="1"><stop offset="0" stop-color="#8fa8d0"/><stop offset=".3" stop-color="#f3f8ff"/><stop offset="1" stop-color="#7e97c2"/></linearGradient>
+      <linearGradient id="cs"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".35" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+      <pattern id="stripe" width="9" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)"><rect width="9" height="7" fill="#fff"/><rect y="7" width="9" height="7" fill="#4d8dff"/></pattern>
+      <linearGradient id="fo" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff8a00"/><stop offset=".6" stop-color="#ffc83a"/><stop offset="1" stop-color="#fff0a0" stop-opacity=".9"/></linearGradient>
+      <radialGradient id="gw"><stop offset="0" stop-color="#ffd27a" stop-opacity=".85"/><stop offset="1" stop-color="#ff9a30" stop-opacity="0"/></radialGradient>
+      <filter id="bl"><feGaussianBlur stdDeviation="7"/></filter>
+    </defs>
+    <ellipse cx="200" cy="350" rx="190" ry="13" fill="#000" opacity=".4" filter="url(#bl)"/>
+    <ellipse cx="200" cy="332" rx="195" ry="26" fill="url(#plate)"/>
+    <ellipse cx="200" cy="328" rx="178" ry="20" fill="#e9f2ff" opacity=".9"/>
+    <g id="tiers"></g>
+    <g id="candles"></g>
+  </svg>
+  </div>
+  <div id="bot"><div id="count"></div><button id="go">Light the candles</button></div>
+</div>
+<div id="finale" class="hidden"><div class="sc">For Dad</div><h2 id="hb"></h2><div class="rule"></div><p>Wishing you a year as wonderful as you are.</p><button id="again">Celebrate again</button></div>
+<canvas id="cv"></canvas>
+<script>
+(function(){
+var NS='http://www.w3.org/2000/svg',cx=200,seed=11;
+function R(){seed=seed*16807%2147483647;return seed/2147483647}
+function band(x1,x2,y,h,ry){var rx=(x2-x1)/2;return 'M'+x1+' '+y+'A'+rx+' '+ry+' 0 0 0 '+x2+' '+y+'L'+x2+' '+(y+h)+'A'+rx+' '+ry+' 0 0 1 '+x1+' '+(y+h)+'Z'}
+var T=[[40,360,240,318],[80,320,170,242],[120,280,105,172]],o='';
+T.forEach(function(t,i){
+  var x1=t[0],x2=t[1],yt=t[2],yb=t[3],rx=(x2-x1)/2,ry=rx*.15;
+  var d='M'+x1+' '+yt+'V'+yb+'A'+rx+' '+ry+' 0 0 0 '+x2+' '+yb+'V'+yt+'Z';
+  o+='<clipPath id="c'+i+'"><path d="'+d+'"/></clipPath><path d="'+d+'" fill="url(#sponge)"/><g clip-path="url(#c'+i+')">';
+  [.36,.68].forEach(function(f){var y=yt+(yb-yt)*f;o+='<path d="'+band(x1,x2,y,8,ry)+'" fill="#fffdf2"/><path d="'+band(x1,x2,y+8,2,ry)+'" fill="#caa968" opacity=".35"/>'});
+  for(var k=0;k<90;k++)o+='<ellipse cx="'+(x1+R()*(x2-x1))+'" cy="'+(yt+R()*(yb-yt+ry))+'" rx="'+(.6+R()*1.2)+'" ry=".7" fill="#c9a766" opacity=".35"/>';
+  o+='</g><path d="'+d+'" fill="url(#shade)"/>';
+  o+='<ellipse cx="'+cx+'" cy="'+yt+'" rx="'+rx+'" ry="'+ry+'" fill="url(#tp)"/><ellipse cx="'+(cx-rx*.25)+'" cy="'+(yt-ry*.2)+'" rx="'+rx*.45+'" ry="'+ry*.3+'" fill="#fff" opacity=".22"/>';
+  o+='<path d="'+band(x1,x2,yt,11,ry)+'" fill="url(#ice)"/>';
+  var n=Math.floor((x2-x1)/17);
+  for(var k=0;k<n;k++){var x=x1+9+k*(x2-x1-18)/(n-1)+(R()-.5)*5,w=8+R()*5,len=10+R()*(i?30:42),
+    y0=yt+ry*Math.sqrt(Math.max(0,1-Math.pow((x-cx)/rx,2)))+4;
+    o+='<path d="M'+(x-w/2)+' '+y0+'V'+(y0+len)+'a'+w/2+' '+w/2+' 0 0 0 '+w+' 0V'+y0+'Z" fill="url(#ice)"/><ellipse cx="'+(x-w/5)+'" cy="'+(y0+len*.5)+'" rx="1.3" ry="'+len*.3+'" fill="#fff" opacity=".5"/>'}
+  var by=i<2?T[i+1][3]:0;
+  if(i<2){var r2=(T[i+1][1]-T[i+1][0])/2,ry2=r2*.15,y2=T[i+1][3];for(var a=T[i+1][0]+8;a<T[i+1][1]-6;a+=12)o+='<circle cx="'+a+'" cy="'+(y2+ry2*Math.sqrt(1-Math.pow((a-cx)/r2,2))+1)+'" r="5" fill="#fff"/><circle cx="'+(a-1.5)+'" cy="'+(y2+ry2*Math.sqrt(1-Math.pow((a-cx)/r2,2))-1)+'" r="1.6" fill="#cfe2ff"/>'}
+  if(i==0)for(var a=48;a<354;a+=13)o+='<circle cx="'+a+'" cy="'+(yb+ry*Math.sqrt(1-Math.pow((a-cx)/rx,2))-3)+'" r="5.5" fill="#fff"/><circle cx="'+(a-1.5)+'" cy="'+(yb+ry*Math.sqrt(1-Math.pow((a-cx)/rx,2))-5)+'" r="1.7" fill="#cfe2ff"/>';
+});
+document.getElementById('tiers').innerHTML=o;
+var c='',fl=[];
+[150,175,200,225,250].forEach(function(x,i){
+  var by=105+12*Math.sqrt(1-Math.pow((x-cx)/80,2))+1,top=by-48;
+  c+='<ellipse cx="'+x+'" cy="'+by+'" rx="6" ry="2" fill="#1b4fb8" opacity=".5"/><rect x="'+(x-4.5)+'" y="'+top+'" width="9" height="48" fill="url(#stripe)"/><rect x="'+(x-4.5)+'" y="'+top+'" width="9" height="48" fill="url(#cs)"/><ellipse cx="'+x+'" cy="'+top+'" rx="4.5" ry="1.6" fill="#f4f8ff"/><line x1="'+x+'" y1="'+top+'" x2="'+x+'" y2="'+(top-7)+'" stroke="#2a2a2a" stroke-width="1.5"/>'+
+  '<path class="smoke" d="M'+x+' '+(top-8)+'q-7 -10 0 -19t0 -19" />'+
+  '<g class="lit" transform="translate('+x+','+(top-7)+')"><circle class="glow" r="24" cy="-12" fill="url(#gw)"/><g class="flame'+(i%2?' b':'')+'" style="animation-delay:-'+(i*.07)+'s"><path d="M0-25C7-13 8-5 0 2C-8-5-7-13 0-25Z" fill="url(#fo)"/><path d="M0-14C3.5-8 4-3 0 0C-4-3-3.5-8 0-14Z" fill="#fff8cc"/><ellipse cy="-1" rx="2.6" ry="3.2" fill="#3b7bff" opacity=".8"/></g></g>';
+});
+document.getElementById('candles').innerHTML=c;
+var scene=document.getElementById('scene');
+for(var i=0;i<18;i++){var b=document.createElement('div'),s=40+R()*110;b.className='bk';b.style.cssText='width:'+s+'px;height:'+s+'px;left:'+R()*100+'%;top:'+R()*100+'%;animation-delay:-'+R()*9+'s';scene.insertBefore(b,scene.firstChild)}
+var cake=document.getElementById('cake'),wrap=document.getElementById('wrap'),msg=document.getElementById('msg'),cnt=document.getElementById('count'),go=document.getElementById('go'),warm=document.getElementById('warm'),fin=document.getElementById('finale'),top=document.getElementById('top'),st=0;
+function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function say(t){msg.style.opacity=0;setTimeout(function(){msg.textContent=t;msg.style.opacity=1},350)}
+function zoom(on){
+  if(!on){wrap.style.transform='none';return}
+  wrap.style.transition='none';wrap.style.transform='none';var r=wrap.getBoundingClientRect();wrap.offsetWidth;wrap.style.transition='';
+  var u=r.width/400,s=Math.min(3.6,innerWidth*.86/(130*u)),tx=innerWidth/2-r.left-s*200*u,ty=innerHeight*.54-r.top-s*82*u;
+  wrap.style.transform='translate('+tx+'px,'+ty+'px) scale('+s+')'}
+cake.classList.add('out');warm.style.opacity=0;
+cake.querySelectorAll('.lit').forEach(function(f){f.style.display='none'});
+go.onclick=async function(){
+  if(st==0){st=1;go.classList.add('hidden');
+    cake.classList.remove('out');cake.querySelectorAll('.lit').forEach(function(f){f.style.display=''});
+    warm.style.opacity=1;say('Close your eyes…');await wait(1900);
+    zoom(true);say('Now it’s time to make a wish');await wait(2600);
+    for(var n=5;n>=1;n--){cnt.textContent=n;cnt.classList.remove('tick');void cnt.offsetWidth;cnt.classList.add('tick');await wait(1000)}
+    cnt.textContent='';say('Take a deep breath…');await wait(2200);
+    say('Blow out the candles!');await wait(900);st=3;
+    cake.classList.add('blow');await wait(1300);
+    cake.classList.remove('blow');cake.classList.add('out');warm.style.opacity=0;say('Your wish is on its way…');await wait(2200);
+    zoom(false);await wait(2400);finale()}
+};
+document.getElementById('again').onclick=function(){confetti();tune()};
+function finale(){
+  top.classList.add('hidden');document.getElementById('bot').classList.add('hidden');
+  var h='',k=0;['Happy','Birthday!!!!'].forEach(function(w){h+='<span class="l">';w.split('').forEach(function(ch){h+='<i style="animation-delay:'+(.5+k++*.07)+'s">'+ch+'</i>'});h+='</span>'});
+  document.getElementById('hb').innerHTML=h;fin.classList.remove('hidden');confetti();tune()}
+function confetti(){
+  var c=document.getElementById('cv'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  var cols=['#ffffff','#9cc3ff','#5b9bff','#1f5fd6','#d9e8ff','#ffd978'],p=[];
+  for(var i=0;i<170;i++)p.push({x:Math.random()*c.width,y:-Math.random()*c.height,w:5+Math.random()*7,h:9+Math.random()*9,v:2+Math.random()*3.5,s:Math.random()*2-1,r:Math.random()*6,vr:Math.random()*.2-.1,c:cols[i%6]});
+  var t=0;(function f(){x.clearRect(0,0,c.width,c.height);
+    p.forEach(function(q){q.y+=q.v;q.x+=q.s+Math.sin(q.y/30);q.r+=q.vr;x.save();x.translate(q.x,q.y);x.rotate(q.r);x.scale(1,Math.cos(q.r*3));x.fillStyle=q.c;x.fillRect(-q.w/2,-q.h/2,q.w,q.h);x.restore()});
+    if(++t<520)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function tune(){try{var A=new(window.AudioContext||window.webkitAudioContext)(),t=A.currentTime+.1,b=.42,
+  N=[[392,.75],[392,.25],[440,1],[392,1],[523,1],[494,2],[392,.75],[392,.25],[440,1],[392,1],[587,1],[523,2],[392,.75],[392,.25],[784,1],[659,1],[523,1],[494,1],[440,1],[698,.75],[698,.25],[659,1],[523,1],[587,1],[523,2]];
+  N.forEach(function(n){var o=A.createOscillator(),g=A.createGain();o.type='triangle';o.frequency.value=n[0];
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+n[1]*b);
+    o.connect(g);g.connect(A.destination);o.start(t);o.stop(t+n[1]*b+.05);t+=n[1]*b})}catch(e){}}
+})();
+</script>
+</body>
+</html>
